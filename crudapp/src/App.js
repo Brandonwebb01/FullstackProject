@@ -4,6 +4,7 @@ import axios from "axios";
 import Table from './TableComponents/Table/Table';
 import AddForm from './FormComponents/AddForm/AddForm';
 import EditForm from './FormComponents/EditForm/EditForm';
+import Navbar from './NavbarComponent/Navbar';
 
 const App = props => {
   const [entries , setEntries] = useState([]);
@@ -90,6 +91,7 @@ const App = props => {
 
   return (
     <div className="App">
+      <Navbar />
       { editing ? (
         <EditForm onEditEntry={ _updateEntry } entry={ selectedEntry } />
       ) : (
