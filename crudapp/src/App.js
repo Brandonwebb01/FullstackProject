@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import './App.scss';
 import axios from "axios";
-import Table from './TableComponents/Table/Table';
-import AddForm from './FormComponents/AddForm/AddForm';
-import EditForm from './FormComponents/EditForm/EditForm';
+import CategoryTable from './TableComponents/CategoryTable/CategoryTable';
+import ItemTable from './TableComponents/ItemTable/ItemTable';
 import Navbar from './NavbarComponent/Navbar';
+import { Route, Routes } from 'react-router';
 
 const App = props => {
   const [entries , setEntries] = useState([]);
@@ -92,14 +92,20 @@ const App = props => {
   return (
     <div className="App">
       <Navbar />
-      { editing ? (
-        <EditForm onEditEntry={ _updateEntry } entry={ selectedEntry } />
-      ) : (
-        <AddForm onAddEntry={ _addEntry } />
-      )}
-      <Table entries={ entries } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
+      <Routes>
+        <Route path="/" />
+        <Route path="/Categories" element={<CategoryTable />} />
+        <Route path="/Items" element={<ItemTable />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
+      /* { editing ? (
+        <EditForm onEditEntry={ _updateEntry } entry={ selectedEntry } />
+      ) : (
+        <AddForm onAddEntry={ _addEntry } />
+      )}
+      <Table entries={ entries } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } /> */
