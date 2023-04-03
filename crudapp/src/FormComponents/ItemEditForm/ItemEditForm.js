@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from "react";
-import './AddForm.css';
+import './EditForm.css';
 import Button from "../Button/Button";
 
-const AddForm = props => {
+const EditForm = props => {
+    const [id, setID] = useState('');
     const [value1, setValue1] = useState('');
     const [value2, setValue2] = useState('');
     const [value3, setValue3] = useState('');
     const [entry, setEntry] = useState({});
+
+    useEffect(()=>{
+        setID(props.entry.id);
+        setValue1(props.entry.value1);
+        setValue2(props.entry.value2);
+        setValue3(props.entry.value3);        
+    }, [props]);
 
     const _detectValue1TextChanged = (key, value) => {
         setValue1(value);
@@ -22,25 +30,25 @@ const AddForm = props => {
     }
 
     useEffect( () => {
-        setEntry({'value1':value1, 'value2':value2, 'value3':value3});
+        setEntry({'id':id, 'value1':value1, 'value2':value2, 'value3':value3});
         console.log("setEntry Changed");
-    }, [value1, value2, value3]);
+    }, [id, value1, value2, value3]);
 
-    const _add = () => {
-        console.log("AddForm _add triggered");
-        props.onAddEntry(entry);
+    const _edit = () => {
+        console.log("EditForm _edit triggered");
+        props.onEditEntry(entry);
         _clear();
     }
 
     const _clear = () => {
         setEntry({});
-        setValue1(''); setValue2(""); setValue3("");
+        setID(''); setValue1(''); setValue2(""); setValue3("");
         console.log("_clear event fired");
     }
 
     return(
         <div className="Form" style={ {marginTop:'16px'} }>
-            <Button onclick={ _add } title="Add Entry" />
+            <Button onclick={ _edit } title="Save Entry" />
             <br />
             <label>Value 1:</label>
             <input type="text" placeholder="Value 1" value={ value1 } 
@@ -56,4 +64,4 @@ const AddForm = props => {
             </div>
     );
 }
-export default AddForm;
+export default EditForm;

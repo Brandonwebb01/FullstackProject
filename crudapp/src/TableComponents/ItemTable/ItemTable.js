@@ -1,5 +1,6 @@
 import React from "react";
 import ItemTableRow from '../ItemTableRow/ItemTableRow';
+import ItemAddForm from '../../FormComponents/ItemAddForm/ItemAddForm';
 import './ItemTable.css';
 
 const Table = props => {
@@ -38,7 +39,9 @@ const Table = props => {
                     }
                 </tbody>
             </table>
-
+            {
+                <ItemAddForm onAddEntry={ props.addEntry } />
+            }
         </div>
     );
 }

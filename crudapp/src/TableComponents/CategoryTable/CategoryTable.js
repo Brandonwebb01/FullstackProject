@@ -1,6 +1,8 @@
 import React from "react";
 import CategoryTableRow from '../CategoryTableRow/CategoryTableRow';
+import CtgyAddForm from '../../FormComponents/CtgyAddForm/AddCtgyForm';
 import './CategoryTable.css';
+
 
 const Table = props => {
 
@@ -12,6 +14,11 @@ const Table = props => {
     const _deleteEntry = entry => {
         console.log("Table _deleteEntry triggered");
         props.deleteEntry(entry);
+    }
+
+    const _addEntry = entry => {
+        console.log("Table _addEntry triggered");
+        props.addEntry(entry);
     }
 
     return(
@@ -27,13 +34,15 @@ const Table = props => {
                     {
                         props.entries.map(
                             (entry, index) => (
-                                <CategoryTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
+                                <CategoryTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />                   
                             )
                         )
                     }
                 </tbody>
             </table>
-
+            {
+                <CtgyAddForm onAddEntry={ _addEntry } />
+            }
         </div>
     );
 }
