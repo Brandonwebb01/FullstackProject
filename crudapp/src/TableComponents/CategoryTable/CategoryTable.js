@@ -11,7 +11,7 @@ const Table = props => {
 
     const _deleteEntry = entry => {
         console.log("Table _deleteEntry triggered");
-        props.onDeleteEntry(entry);
+        props.deleteEntry(entry);
     }
 
     return(

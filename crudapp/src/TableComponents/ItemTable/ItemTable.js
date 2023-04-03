@@ -30,11 +30,11 @@ const Table = props => {
                 </thead>
                 <tbody>
                     {
-                        // props.entries.map(
-                        //     (entry, index) => (
-                        //         <ItemTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
-                        //     )
-                        // )
+                        props.entries.map(
+                            (entry, index) => (
+                                <ItemTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
+                            )
+                        )
                     }
                 </tbody>
             </table>

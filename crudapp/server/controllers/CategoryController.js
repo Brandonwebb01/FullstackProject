@@ -15,22 +15,22 @@ module.exports = {
             
             db.query(`SELECT * FROM categories`, (err, results)=>{
                 if (err) return res.sendStatus(500);
-                return res.send({ categories: results });
+                return res.send({ entries: results });
             });
         });
     }, 
     update(req, res){
-        db.query(`UPDATE categories SET name=? WHERE id=?`, [req.body.entry.name, req.params.entry], (err, result)=>{
+        db.query(`UPDATE categories SET name=? WHERE categories_id=?`, [req.body.entry.name, req.params.entry], (err, result)=>{
             if (err) return res.sendStatus(500);
             
             db.query(`SELECT * FROM categories`, (err, results)=>{
                 if (err) return res.sendStatus(500);
-                return res.send({ categories: results });
+                return res.send({ entries: results });
             });
         });
     },
     destroy(req, res){
-        db.query(`DELETE FROM categories WHERE id=?`, [req.params.entry], (err, result)=>{
+        db.query(`DELETE FROM categories WHERE categories_id=?`, [req.params.entry], (err, result)=>{
             if (err) return res.sendStatus(500);
             
             db.query(`SELECT * FROM categories`, (err, results)=>{

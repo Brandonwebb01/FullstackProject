@@ -8,13 +8,14 @@ import { Route, Routes } from 'react-router';
 
 const App = props => {
   const [entries , setEntries] = useState([]);
+  const [entries1 , setEntries1] = useState([]);
   const [editing, setEditing] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState({});
 
   //useEffect that fires when the component renders
   useEffect( ( )=>{ 
-    let url = "http://127.0.0.1:3001/entries";  
-    axios.get(url) //npm install axios --save
+   let url = "http://127.0.0.1:3001/categories";  
+      axios.get(url) //npm install axios --save
          .then( res => {
             console.log(res.data.entries);
             setEntries(res.data.entries);
@@ -22,7 +23,17 @@ const App = props => {
          .catch(error => {
             console.log(error);
          });
-  }, [ ]);//empty array like ready
+
+   let url1 = "http://127.0.0.1:3001/items";  
+      axios.get(url1) //npm install axios --save
+         .then( res => {
+            console.log(res.data.entries1);
+            setEntries1(res.data.entries1);
+         })
+         .catch(error => {
+            console.log(error);
+         });
+ }, [ ]);//empty array like ready
 
   //add entry function to pass into AddForm
   const _addEntry = entry => {
@@ -73,7 +84,7 @@ const App = props => {
 
   const _deleteEntry = entry => {
     //send entry to server via axios to delete
-    let url = `http://127.0.0.1:3001/entries/${entry.id}`;  
+    let url = `http://localhost:3001/categories/${entry.categories_id}`;  
     axios.delete(url, {
             entry: entry
          })
@@ -94,18 +105,11 @@ const App = props => {
       <Navbar />
       <Routes>
         <Route path="/" />
-        <Route path="/Categories" element={<CategoryTable entries={entries} />} />
-        <Route path="/Items" element={<ItemTable />} />
+        <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} />} />
+        <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry}/>} />
       </Routes>
     </div>
   );
 }
 
 export default App;
-
-      /* { editing ? (
-        <EditForm onEditEntry={ _updateEntry } entry={ selectedEntry } />
-      ) : (
-        <AddForm onAddEntry={ _addEntry } />
-      )}
-      <Table entries={ entries } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } /> */
