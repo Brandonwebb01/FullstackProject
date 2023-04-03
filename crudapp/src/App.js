@@ -94,7 +94,7 @@ const App = props => {
       <Navbar />
       <Routes>
         <Route path="/" />
-        <Route path="/Categories" element={<CategoryTable />} />
+        <Route path="/Categories" element={<CategoryTable entries={entries} />} />
         <Route path="/Items" element={<ItemTable />} />
       </Routes>
     </div>

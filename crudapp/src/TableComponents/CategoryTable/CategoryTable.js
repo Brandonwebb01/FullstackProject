@@ -1,4 +1,5 @@
 import React from "react";
+import CategoryTableRow from '../CategoryTableRow/CategoryTableRow';
 import './CategoryTable.css';
 
 const Table = props => {
@@ -19,18 +20,16 @@ const Table = props => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Value 1</th>
-                        <th>Value 3</th>
-                        <th>Value 4</th>
+                        <th>Name</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        // props.entries.map(
-                        //     (entry, index) => (
-                        //         <TableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
-                        //     )
-                        // )
+                        props.entries.map(
+                            (entry, index) => (
+                                <CategoryTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
+                            )
+                        )
                     }
                 </tbody>
             </table>

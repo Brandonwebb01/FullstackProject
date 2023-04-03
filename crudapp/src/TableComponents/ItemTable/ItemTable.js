@@ -1,4 +1,5 @@
 import React from "react";
+import ItemTableRow from '../ItemTableRow/ItemTableRow';
 import './ItemTable.css';
 
 const Table = props => {
@@ -19,16 +20,19 @@ const Table = props => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Value 1</th>
-                        <th>Value 3</th>
-                        <th>Value 4</th>
+                        <th>Category id</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                        <th>sku</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         // props.entries.map(
                         //     (entry, index) => (
-                        //         <TableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
+                        //         <ItemTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />
                         //     )
                         // )
                     }
