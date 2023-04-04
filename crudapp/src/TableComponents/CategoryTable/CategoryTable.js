@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from 'react';
 import CategoryTableRow from '../CategoryTableRow/CategoryTableRow';
 import CtgyAddForm from '../../FormComponents/CtgyAddForm/AddCtgyForm';
+import CtgyEditForm from "../../FormComponents/CtgyEditForm/CtgyEditForm";
 import './CategoryTable.css';
 
 
 const Table = props => {
 
+    const [editing, setEditing] = useState(false);
+
     const _editEntry = entry => {
         console.log("Table _editEntry triggered");
-        props.onEditEntry(entry);
+        props.editEntry(entry);
+        setEditing(true);
     }
 
     const _deleteEntry = entry => {
@@ -19,6 +23,12 @@ const Table = props => {
     const _addEntry = entry => {
         console.log("Table _addEntry triggered");
         props.addEntry(entry);
+    }
+
+    const _updateEntry = entry => {
+        console.log("Table _updateEntry triggered");
+        props.updateEntry(entry);
+        console.log(entry);
     }
 
     return(
@@ -40,9 +50,11 @@ const Table = props => {
                     }
                 </tbody>
             </table>
-            {
+            { editing ? (
+                <CtgyEditForm onEditEntry={ _updateEntry } entry={ props.selectedEntry } />
+            ) : (
                 <CtgyAddForm onAddEntry={ _addEntry } />
-            }
+            )}
         </div>
     );
 }

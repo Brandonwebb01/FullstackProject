@@ -32,8 +32,8 @@ const CtgyAddForm = props => {
         <div className="Form" style={ {marginTop:'16px'} }>
             <Button onclick={ _add } title="Add Entry" />
             <br />
-            <label>Value 1:</label>
-            <input type="text" placeholder="Value 1" value={ value1 } 
+            <label>Name:</label>
+            <input type="text" placeholder="Name" value={ value1 } 
               onChange={ e => _detectValue1TextChanged('name', e.target.value) } />
             <br />
             </div>

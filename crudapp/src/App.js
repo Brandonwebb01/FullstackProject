@@ -78,7 +78,7 @@ const App = props => {
 
    const _updateEntry = entry => {
       //send entry to server via axios
-      let url = `http://127.0.0.1:3001/entries/${entry.id}`;
+      let url = `http://127.0.0.1:3001/categories/${entry.id}`;
       axios.patch(url, {
          entry: entry
       })
@@ -109,6 +109,19 @@ const App = props => {
             console.log(error);
          });
 
+      //make a let url1
+      let url1 = `http://localhost:3001/items/${entry.item_id}`;
+      axios.delete(url1, {
+         entry: entry
+      })
+      .then(res => {
+         console.log(res.data.entries1);
+         setEntries1(res.data.entries1);
+      })
+      .catch(error => {
+         console.log(error);
+      });
+
       //update entries with response
       console.log("App _deleteEntry triggered");
    }
@@ -118,7 +131,8 @@ const App = props => {
          <Navbar />
          <Routes>
             <Route path="/" />
-            <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry} />} />
+            <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
+                                                 selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
             <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry} />} />
          </Routes>
       </div>
