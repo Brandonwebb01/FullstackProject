@@ -57,28 +57,28 @@ const ItemAddForm = props => {
         <div className="Form" style={ {marginTop:'16px'} }>
             <Button onclick={ _add } title="Add Entry" />
             <br />
-            <label>Value 1:</label>
-            <input type="text" placeholder="Value 1" value={ value1 } 
+            <label>Category ID:</label>
+            <input type="text" placeholder="Category ID" value={ value1 } 
               onChange={ e => _detectValue1TextChanged('category_id', e.target.value) } />
             <br />
-            <label>Value 2:</label>
-            <input type="text" placeholder="Value 2" value={ value2 } 
+            <label>Title:</label>
+            <input type="text" placeholder="Title" value={ value2 } 
               onChange={ e => _detectValue2TextChanged('title', e.target.value) } />
             <br />
-            <label>Value 3:</label>
-            <input type="text" placeholder="Value 3" value={ value3 } 
+            <label>Description:</label>
+            <input type="text" placeholder="Description" value={ value3 } 
               onChange={ e => _detectValue3TextChanged('description', e.target.value) } />
             <br />
-            <label>Value 4:</label>
-            <input type="text" placeholder="Value 4" value={ value4 }
+            <label>Price:</label>
+            <input type="text" placeholder="Price" value={ value4 }
                 onChange={ e => _detectValue4TextChanged('price', e.target.value) } />
             <br />
-            <label>Value 5:</label>
-            <input type="text" placeholder="Value 5" value={ value5 }
+            <label>Quantity:</label>
+            <input type="text" placeholder="Quantity" value={ value5 }
                 onChange={ e => _detectValue5TextChanged('quantity', e.target.value) } />
             <br />
-            <label>Value 6:</label>
-            <input type="text" placeholder="Value 6" value={ value6 }
+            <label>Sku:</label>
+            <input type="text" placeholder="Sku" value={ value6 }
                 onChange={ e => _detectValue6TextChanged('sku', e.target.value) } />
             </div>
     );

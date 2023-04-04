@@ -10,8 +10,6 @@ const CtgyEditForm = props => {
     useEffect(()=>{
         setID(props.entry.categories_id);
         setValue1(props.entry.value1);
-        console.log(props.entry.categories_id);
-        console.log(props.entry.value1);
     }, [props]);
 
     const _detectValue1TextChanged = (key, value) => {

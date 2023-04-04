@@ -90,6 +90,19 @@ const App = props => {
             console.log(error);
          });
 
+      //make a let url1
+      let url1 = `http://127.0.0.1:3001/items/${entry.id}`;
+      axios.patch(url1, {
+         entry: entry
+      })
+         .then(res => {
+            console.log(res.data.entries1);
+            setEntries1(res.data.entries1);
+         })
+         .catch(error => {
+            console.log(error);
+         });
+
       //update entries with response
       setEditing(false);
       console.log("App _updateEntry triggered");
@@ -133,7 +146,8 @@ const App = props => {
             <Route path="/" />
             <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
                                                  selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
-            <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry} />} />
+            <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
+                                                 selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
          </Routes>
       </div>
    );

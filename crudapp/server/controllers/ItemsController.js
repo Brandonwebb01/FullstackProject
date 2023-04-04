@@ -22,7 +22,9 @@ module.exports = {
         });
     }, 
     update(req, res){
-        db.query(`UPDATE categories SET name=? WHERE categories_id=?`, [req.body.entry.name, req.params.entry], (err, result)=>{
+        db.query(`UPDATE items SET category_id=?, title=?, description=?, price=?, quantity=?, sku=? WHERE item_id=?`,
+                [req.body.entry.category_id, req.body.entry.title, req.body.entry.description, req.body.entry.price,
+                req.body.entry.quantity, req.body.entry.sku, req.params.entry], (err, result)=>{
             if (err) return res.sendStatus(500);
             
             db.query(`SELECT * FROM items`, (err, results)=>{
