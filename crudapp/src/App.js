@@ -53,18 +53,18 @@ const App = props => {
             console.log(error);
          });
 
-         //make a let url1
-         let url1 = "http://127.0.0.1:3001/items";
-         axios.post(url1, {
-            entry: entry
+      //make a let url1
+      let url1 = "http://127.0.0.1:3001/items";
+      axios.post(url1, {
+         entry: entry
+      })
+         .then(res => {
+            console.log(res.data.entries1);
+            setEntries1(res.data.entries1);
          })
-            .then(res => {
-               console.log(res.data.entries1);
-               setEntries1(res.data.entries1);
-            })
-            .catch(error => {
-               console.log(error);
-            });
+         .catch(error => {
+            console.log(error);
+         });
    }
 
    //edit entry function to pass into EditForm
@@ -127,13 +127,13 @@ const App = props => {
       axios.delete(url1, {
          entry: entry
       })
-      .then(res => {
-         console.log(res.data.entries1);
-         setEntries1(res.data.entries1);
-      })
-      .catch(error => {
-         console.log(error);
-      });
+         .then(res => {
+            console.log(res.data.entries1);
+            setEntries1(res.data.entries1);
+         })
+         .catch(error => {
+            console.log(error);
+         });
 
       //update entries with response
       console.log("App _deleteEntry triggered");
@@ -145,9 +145,9 @@ const App = props => {
          <Routes>
             <Route path="/" />
             <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
-                                                 selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
+               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
             <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
-                                                 selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
+               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
          </Routes>
       </div>
    );

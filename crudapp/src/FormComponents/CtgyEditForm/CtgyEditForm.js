@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import './CtgyEditForm.css';
 import Button from "../Button/Button";
 
@@ -7,7 +7,7 @@ const CtgyEditForm = props => {
     const [value1, setValue1] = useState('');
     const [entry, setEntry] = useState({});
 
-    useEffect(()=>{
+    useEffect(() => {
         setID(props.entry.categories_id);
         setValue1(props.entry.value1);
     }, [props]);
@@ -17,8 +17,8 @@ const CtgyEditForm = props => {
         console.log("_detectValue1TextChanged event fired");
     }
 
-    useEffect( () => {
-        setEntry({'id':id, 'name':value1});
+    useEffect(() => {
+        setEntry({ 'id': id, 'name': value1 });
         console.log("setEntry Changed");
     }, [id, value1]);
 
@@ -34,15 +34,15 @@ const CtgyEditForm = props => {
         console.log("_clear event fired");
     }
 
-    return(
-        <div className="Form" style={ {marginTop:'16px'} }>
-            <Button onclick={ _edit } title="Save Entry" />
+    return (
+        <div className="Form" style={{ marginTop: '16px' }}>
+            <Button onclick={_edit} title="Save Entry" />
             <br />
             <label>Name:</label>
-            <input type="text" placeholder="Name" value={ value1 } 
-              onChange={ e => _detectValue1TextChanged('name', e.target.value) } />
+            <input type="text" placeholder="Name" value={value1}
+                onChange={e => _detectValue1TextChanged('name', e.target.value)} />
             <br />
-            </div>
+        </div>
     );
 }
 export default CtgyEditForm;

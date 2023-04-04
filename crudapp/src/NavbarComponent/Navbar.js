@@ -7,10 +7,10 @@ function Navbar() {
     <AppBar position="static">
       <Toolbar>
         <Button color="inherit" component={Link} to="/Categories">
-            Categories
+          Categories
         </Button>
         <Button color="inherit" component={Link} to="/Items">
-            Items
+          Items
         </Button>
       </Toolbar>
     </AppBar>

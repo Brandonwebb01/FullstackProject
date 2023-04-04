@@ -31,9 +31,9 @@ const Table = props => {
         console.log(entry);
     }
 
-    return(
+    return (
         <div className="Table">
-            <table style={{ marginTop:'16px' }} border="1">
+            <table style={{ marginTop: '16px' }} border="1">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -44,16 +44,16 @@ const Table = props => {
                     {
                         props.entries.map(
                             (entry, index) => (
-                                <CategoryTableRow index={ index } entry={ entry } key={ index } onEditEntry={ _editEntry } onDeleteEntry={ _deleteEntry } />                   
+                                <CategoryTableRow index={index} entry={entry} key={index} onEditEntry={_editEntry} onDeleteEntry={_deleteEntry} />
                             )
                         )
                     }
                 </tbody>
             </table>
-            { editing ? (
-                <CtgyEditForm onEditEntry={ _updateEntry } entry={ props.selectedEntry } />
+            {editing ? (
+                <CtgyEditForm onEditEntry={_updateEntry} entry={props.selectedEntry} />
             ) : (
-                <CtgyAddForm onAddEntry={ _addEntry } />
+                <CtgyAddForm onAddEntry={_addEntry} />
             )}
         </div>
     );

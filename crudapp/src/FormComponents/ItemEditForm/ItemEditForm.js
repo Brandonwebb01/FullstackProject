@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import './ItemEditForm.css';
 import Button from "../Button/Button";
 
@@ -12,11 +12,11 @@ const EditForm = props => {
     const [value6, setValue6] = useState('');
     const [entry, setEntry] = useState({});
 
-    useEffect(()=>{
+    useEffect(() => {
         setID(props.entry.item_id);
         setValue1(props.entry.value1);
         setValue2(props.entry.value2);
-        setValue3(props.entry.value3);    
+        setValue3(props.entry.value3);
         setValue4(props.entry.value4);
         setValue5(props.entry.value5);
         setValue6(props.entry.value6);
@@ -47,8 +47,8 @@ const EditForm = props => {
         console.log("_detectValue6TextChanged event fired");
     }
 
-    useEffect( () => {
-        setEntry({'id':id, 'category_id':value1, 'title':value2, 'description':value3, 'price':value4, 'quantity':value5, 'sku':value6});
+    useEffect(() => {
+        setEntry({ 'id': id, 'category_id': value1, 'title': value2, 'description': value3, 'price': value4, 'quantity': value5, 'sku': value6 });
         console.log("setEntry Changed");
     }, [id, value1, value2, value3, value4, value5, value6]);
 
@@ -64,34 +64,34 @@ const EditForm = props => {
         console.log("_clear event fired");
     }
 
-    return(
-        <div className="Form" style={ {marginTop:'16px'} }>
-            <Button onclick={ _edit } title="Save Entry" />
+    return (
+        <div className="Form" style={{ marginTop: '16px' }}>
+            <Button onclick={_edit} title="Save Entry" />
             <br />
             <label>Category ID:</label>
-            <input type="text" placeholder="Category ID" value={ value1 } 
-              onChange={ e => _detectValue1TextChanged('category_id', e.target.value) } />
+            <input type="text" placeholder="Category ID" value={value1}
+                onChange={e => _detectValue1TextChanged('category_id', e.target.value)} />
             <br />
             <label>Title:</label>
-            <input type="text" placeholder="Title" value={ value2 } 
-              onChange={ e => _detectValue2TextChanged('title', e.target.value) } />
+            <input type="text" placeholder="Title" value={value2}
+                onChange={e => _detectValue2TextChanged('title', e.target.value)} />
             <br />
             <label>Description:</label>
-            <input type="text" placeholder="Description" value={ value3 } 
-              onChange={ e => _detectValue3TextChanged('description', e.target.value) } />
+            <input type="text" placeholder="Description" value={value3}
+                onChange={e => _detectValue3TextChanged('description', e.target.value)} />
             <br />
             <label>Price:</label>
-            <input type="text" placeholder="Price" value={ value4 }
-                onChange={ e => _detectValue4TextChanged('price', e.target.value) } />
+            <input type="text" placeholder="Price" value={value4}
+                onChange={e => _detectValue4TextChanged('price', e.target.value)} />
             <br />
             <label>Quantity:</label>
-            <input type="text" placeholder="Quantity" value={ value5 }
-                onChange={ e => _detectValue5TextChanged('quantity', e.target.value) } />
+            <input type="text" placeholder="Quantity" value={value5}
+                onChange={e => _detectValue5TextChanged('quantity', e.target.value)} />
             <br />
             <label>Sku:</label>
-            <input type="text" placeholder="Sku" value={ value6 }
-                onChange={ e => _detectValue6TextChanged('sku', e.target.value) } />
-            </div>
+            <input type="text" placeholder="Sku" value={value6}
+                onChange={e => _detectValue6TextChanged('sku', e.target.value)} />
+        </div>
     );
 }
 export default EditForm;
