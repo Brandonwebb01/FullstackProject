@@ -29,6 +29,7 @@ const Table = props => {
         console.log("Table _updateEntry triggered");
         props.updateEntry(entry);
         console.log(entry);
+        setEditing(false);
     }
 
     return (

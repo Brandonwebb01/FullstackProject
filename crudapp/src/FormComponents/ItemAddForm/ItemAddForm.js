@@ -57,9 +57,13 @@ const ItemAddForm = props => {
         <div className="Form" style={{ marginTop: '16px' }}>
             <Button onclick={_add} title="Add Entry" />
             <br />
-            <label>Category ID:</label>
-            <input type="text" placeholder="Category ID" value={value1}
-                onChange={e => _detectValue1TextChanged('category_id', e.target.value)} />
+            <label>Category Name:</label>
+            <select value={value1} onChange={e => _detectValue1TextChanged('category_id', e.target.value)}>
+                <option value="">Select a category</option>
+                {props.categories.map(category => (
+                    <option key={category.categories_id} value={category.categories_id}>{category.name}</option>
+                ))}
+            </select>
             <br />
             <label>Title:</label>
             <input type="text" placeholder="Title" value={value2}

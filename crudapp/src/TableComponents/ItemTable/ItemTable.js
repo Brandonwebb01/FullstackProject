@@ -28,6 +28,7 @@ const Table = props => {
         console.log("Table _updateEntry triggered");
         props.updateEntry(entry);
         console.log(entry);
+        setEditing(false);
     }
 
     return (
@@ -55,9 +56,9 @@ const Table = props => {
                 </tbody>
             </table>
             {editing ? (
-                <ItemEditForm onEditEntry={_updateEntry} entry={props.selectedEntry} />
+                <ItemEditForm onEditEntry={_updateEntry} entry={props.selectedEntry} categories={props.categories} />
             ) : (
-                <ItemAddForm onAddEntry={_addEntry} />
+                <ItemAddForm onAddEntry={_addEntry} categories={props.categories}/>
             )}
         </div>
     );

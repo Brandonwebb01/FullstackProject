@@ -4,7 +4,7 @@ import axios from "axios";
 import CategoryTable from './TableComponents/CategoryTable/CategoryTable';
 import ItemTable from './TableComponents/ItemTable/ItemTable';
 import Navbar from './NavbarComponent/Navbar';
-import { Route, Routes } from 'react-router';
+import { Route, Routes, useLocation } from 'react-router';
 
 const App = props => {
    const [entries, setEntries] = useState([]);
@@ -147,7 +147,7 @@ const App = props => {
             <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
                selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
             <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
-               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
+               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} categories={entries} />} />
          </Routes>
       </div>
    );
