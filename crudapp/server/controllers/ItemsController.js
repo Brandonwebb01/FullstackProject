@@ -9,7 +9,9 @@ module.exports = {
         });
     },
     store(req, res) {
-        db.query(`INSERT INTO items (name) VALUES (?)`, [req.body.entry.name], (err, result)=>{
+        db.query(`INSERT INTO items (category_id, title, description, price, quantity, sku) VALUES (?,?,?,?,?,?)`,
+         [req.body.entry.category_id,req.body.entry.title, req.body.entry.description, req.body.entry.price, req.body.entry.quantity, req.body.entry.sku],
+          (err, result)=>{
             console.log("result: " + JSON.stringify(result));
             if (err) return res.sendStatus(500);
             

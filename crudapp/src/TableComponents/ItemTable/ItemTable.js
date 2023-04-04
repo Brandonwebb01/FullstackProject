@@ -15,6 +15,11 @@ const Table = props => {
         props.onDeleteEntry(entry);
     }
 
+    const _addEntry = entry => {
+        console.log("Table _addEntry triggered");
+        props.addEntry(entry);
+    }
+
     return(
         <div className="Table">
             <table style={{ marginTop:'16px' }} border="1">
@@ -40,7 +45,7 @@ const Table = props => {
                 </tbody>
             </table>
             {
-                <ItemAddForm onAddEntry={ props.addEntry } />
+                <ItemAddForm onAddEntry={ _addEntry } />
             }
         </div>
     );

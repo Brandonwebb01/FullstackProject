@@ -52,6 +52,19 @@ const App = props => {
          .catch(error => {
             console.log(error);
          });
+
+         //make a let url1
+         let url1 = "http://127.0.0.1:3001/items";
+         axios.post(url1, {
+            entry: entry
+         })
+            .then(res => {
+               console.log(res.data.entries1);
+               setEntries1(res.data.entries1);
+            })
+            .catch(error => {
+               console.log(error);
+            });
    }
 
    //edit entry function to pass into EditForm
