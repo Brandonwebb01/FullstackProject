@@ -3,43 +3,43 @@ import './ItemAddForm.css';
 import Button from "../Button/Button";
 
 const ItemAddForm = props => {
-    const [value1, setValue1] = useState('');
-    const [value2, setValue2] = useState('');
-    const [value3, setValue3] = useState('');
-    const [value4, setValue4] = useState('');
-    const [value5, setValue5] = useState('');
-    const [value6, setValue6] = useState('');
+    const [categoryid, setCategoryid] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [sku, setSku] = useState('');
     const [entry, setEntry] = useState({});
 
-    const _detectValue1TextChanged = (key, value) => {
-        setValue1(value);
-        console.log("_detectValue1TextChanged event fired");
+    const _detectCategoryidTextChanged = (key, value) => {
+        setCategoryid(value);
+        console.log("_detectCategoryidTextChanged event fired");
     }
-    const _detectValue2TextChanged = (key, value) => {
-        setValue2(value);
-        console.log("_detectValue2TextChanged event fired");
+    const _detectTitleTextChanged = (key, value) => {
+        setTitle(value);
+        console.log("_detectTitleTextChanged event fired");
     }
-    const _detectValue3TextChanged = (key, value) => {
-        setValue3(value);
-        console.log("_detectValue3TextChanged event fired");
+    const _detectDescriptionTextChanged = (key, value) => {
+        setDescription(value);
+        console.log("_detectDescriptionTextChanged event fired");
     }
-    const _detectValue4TextChanged = (key, value) => {
-        setValue4(value);
-        console.log("_detectValue4TextChanged event fired");
+    const _detectPriceTextChanged = (key, value) => {
+        setPrice(value);
+        console.log("_detectPriceTextChanged event fired");
     }
-    const _detectValue5TextChanged = (key, value) => {
-        setValue5(value);
-        console.log("_detectValue5TextChanged event fired");
+    const _detectQuantityTextChanged = (key, value) => {
+        setQuantity(value);
+        console.log("_detectQuantityTextChanged event fired");
     }
-    const _detectValue6TextChanged = (key, value) => {
-        setValue6(value);
-        console.log("_detectValue6TextChanged event fired");
+    const _detectSkuTextChanged = (key, value) => {
+        setSku(value);
+        console.log("_detectSkuTextChanged event fired");
     }
 
     useEffect(() => {
-        setEntry({ 'category_id': value1, 'title': value2, 'description': value3, 'price': value4, 'quantity': value5, 'sku': value6 });
+        setEntry({ 'category_id': categoryid, 'title': title, 'description': description, 'price': price, 'quantity': quantity, 'sku': sku });
         console.log("setEntry Changed");
-    }, [value1, value2, value3, value4, value5, value6]);
+    }, [categoryid, title, description, price, quantity, sku]);
 
     const _add = () => {
         console.log("AddForm _add triggered");
@@ -49,7 +49,7 @@ const ItemAddForm = props => {
 
     const _clear = () => {
         setEntry({});
-        setValue1(''); setValue2(""); setValue3(""); setValue4(""); setValue5(""); setValue6("");
+        setCategoryid(''); setTitle(""); setDescription(""); setPrice(""); setQuantity(""); setSku("");
         console.log("_clear event fired");
     }
 
@@ -58,7 +58,7 @@ const ItemAddForm = props => {
             <Button onclick={_add} title="Add Entry" />
             <br />
             <label>Category Name:</label>
-            <select value={value1} onChange={e => _detectValue1TextChanged('category_id', e.target.value)}>
+            <select value={categoryid} onChange={e => _detectCategoryidTextChanged('category_id', e.target.value)}>
                 <option value="">Select a category</option>
                 {props.categories.map(category => (
                     <option key={category.categories_id} value={category.categories_id}>{category.name}</option>
@@ -66,24 +66,24 @@ const ItemAddForm = props => {
             </select>
             <br />
             <label>Title:</label>
-            <input type="text" placeholder="Title" value={value2}
-                onChange={e => _detectValue2TextChanged('title', e.target.value)} />
+            <input type="text" placeholder="Title" value={title}
+                onChange={e => _detectTitleTextChanged('title', e.target.value)} />
             <br />
             <label>Description:</label>
-            <input type="text" placeholder="Description" value={value3}
-                onChange={e => _detectValue3TextChanged('description', e.target.value)} />
+            <input type="text" placeholder="Description" value={description}
+                onChange={e => _detectDescriptionTextChanged('description', e.target.value)} />
             <br />
             <label>Price:</label>
-            <input type="text" placeholder="Price" value={value4}
-                onChange={e => _detectValue4TextChanged('price', e.target.value)} />
+            <input type="text" placeholder="Price" value={price}
+                onChange={e => _detectPriceTextChanged('price', e.target.value)} />
             <br />
             <label>Quantity:</label>
-            <input type="text" placeholder="Quantity" value={value5}
-                onChange={e => _detectValue5TextChanged('quantity', e.target.value)} />
+            <input type="text" placeholder="Quantity" value={quantity}
+                onChange={e => _detectQuantityTextChanged('quantity', e.target.value)} />
             <br />
             <label>Sku:</label>
-            <input type="text" placeholder="Sku" value={value6}
-                onChange={e => _detectValue6TextChanged('sku', e.target.value)} />
+            <input type="text" placeholder="Sku" value={sku}
+                onChange={e => _detectSkuTextChanged('sku', e.target.value)} />
         </div>
     );
 }

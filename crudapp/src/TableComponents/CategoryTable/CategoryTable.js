@@ -6,7 +6,7 @@ import './CategoryTable.css';
 
 
 const Table = props => {
-
+    
     const [editing, setEditing] = useState(false);
 
     const _editEntry = entry => {

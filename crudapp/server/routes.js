@@ -4,11 +4,13 @@ const ItemsController = require("./controllers/ItemsController");
 
 const router = express.Router();
 
+//routes for categories
 router.get('/categories', CategoryController.index);
 router.post('/categories', CategoryController.store);
 router.patch('/categories/:entry', CategoryController.update);
 router.delete('/categories/:entry', CategoryController.destroy);
 
+//routes for items
 router.get('/items', ItemsController.index);
 router.post('/items', ItemsController.store);
 router.patch('/items/:entry', ItemsController.update);

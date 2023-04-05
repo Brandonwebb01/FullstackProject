@@ -3,18 +3,18 @@ import './AddCtgyForm.css';
 import Button from "../Button/Button";
 
 const CtgyAddForm = props => {
-    const [value1, setValue1] = useState('');
+    const [name, setName] = useState('');
     const [entry, setEntry] = useState({});
 
-    const _detectValue1TextChanged = (key, value) => {
-        setValue1(value);
-        console.log("_detectValue1TextChanged event fired");
+    const _detectName1TextChanged = (key, value) => {
+        setName(value);
+        console.log("_detectNameTextChanged event fired");
     }
 
     useEffect(() => {
-        setEntry({ 'name': value1 });
+        setEntry({ 'name': name });
         console.log("setEntry Changed");
-    }, [value1]);
+    }, [name]);
 
     const _add = () => {
         console.log("AddForm _add triggered");
@@ -24,7 +24,7 @@ const CtgyAddForm = props => {
 
     const _clear = () => {
         setEntry({});
-        setValue1('');
+        setName('');
         console.log("_clear event fired");
     }
 
@@ -33,8 +33,8 @@ const CtgyAddForm = props => {
             <Button onclick={_add} title="Add Entry" />
             <br />
             <label>Name:</label>
-            <input type="text" placeholder="Name" value={value1}
-                onChange={e => _detectValue1TextChanged('name', e.target.value)} />
+            <input type="text" placeholder="Name" value={name}
+                onChange={e => _detectName1TextChanged('name', e.target.value)} />
             <br />
         </div>
     );
