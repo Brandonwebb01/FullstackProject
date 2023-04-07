@@ -5,7 +5,7 @@ module.exports = {
     index(req, res) {
         db.query(`SELECT * FROM categories`, (err, results) => {
             if (err) return res.sendStatus(500);
-            return res.send({ entries: results });
+            return res.send({ categories: results });
         });
     },
     store(req, res) {
@@ -15,7 +15,7 @@ module.exports = {
 
             db.query(`SELECT * FROM categories`, (err, results) => {
                 if (err) return res.sendStatus(500);
-                return res.send({ entries: results });
+                return res.send({ categories: results });
             });
         });
     },
@@ -25,7 +25,7 @@ module.exports = {
 
             db.query(`SELECT * FROM categories`, (err, results) => {
                 if (err) return res.sendStatus(500);
-                return res.send({ entries: results });
+                return res.send({ categories: results });
             });
         });
     },
@@ -35,7 +35,7 @@ module.exports = {
 
             db.query(`SELECT * FROM categories`, (err, results) => {
                 if (err) return res.sendStatus(500);
-                return res.send({ entries: results });
+                return res.send({ categories: results });
             });
         });
     }

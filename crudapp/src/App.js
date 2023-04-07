@@ -7,8 +7,8 @@ import Navbar from './NavbarComponent/Navbar';
 import { Route, Routes } from 'react-router';
 
 const App = props => {
-   const [entries, setEntries] = useState([]);
-   const [entries1, setEntries1] = useState([]);
+   const [categories, setCategories] = useState([]);
+   const [items, setItems] = useState([]);
    const [editing, setEditing] = useState(false);
    const [selectedEntry, setSelectedEntry] = useState({});
 
@@ -19,8 +19,8 @@ const App = props => {
       let url = "http://127.0.0.1:3001/categories";
       axios.get(url) 
          .then(res => {
-            console.log(res.data.entries);
-            setEntries(res.data.entries);
+            console.log(res.data.categories);
+            setCategories(res.data.categories);
          })
          .catch(error => {
             console.log(error);
@@ -29,8 +29,8 @@ const App = props => {
       let url1 = "http://127.0.0.1:3001/items";
       axios.get(url1)
          .then(res => {
-            console.log(res.data.entries1);
-            setEntries1(res.data.entries1);
+            console.log(res.data.items);
+            setItems(res.data.items);
          })
          .catch(error => {
             console.log(error);
@@ -47,8 +47,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries);
-            setEntries(res.data.entries);
+            console.log(res.data.categories);
+            setCategories(res.data.categories);
          })
          .catch(error => {
             console.log(error);
@@ -60,8 +60,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries1);
-            setEntries1(res.data.entries1);
+            console.log(res.data.items);
+            setItems(res.data.items);
          })
          .catch(error => {
             console.log(error);
@@ -85,8 +85,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries);
-            setEntries(res.data.entries);
+            console.log(res.data.categories);
+            setCategories(res.data.categories);
          })
          .catch(error => {
             console.log(error);
@@ -97,8 +97,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries1);
-            setEntries1(res.data.entries1);
+            console.log(res.data.items);
+            setItems(res.data.items);
          })
          .catch(error => {
             console.log(error);
@@ -117,8 +117,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries);
-            setEntries(res.data.entries);
+            console.log(res.data.categories);
+            setCategories(res.data.categories);
          })
          .catch(error => {
             console.log(error);
@@ -129,8 +129,8 @@ const App = props => {
          entry: entry
       })
          .then(res => {
-            console.log(res.data.entries1);
-            setEntries1(res.data.entries1);
+            console.log(res.data.items);
+            setItems(res.data.items);
          })
          .catch(error => {
             console.log(error);
@@ -144,10 +144,10 @@ const App = props => {
          <Navbar />
          <Routes>
             <Route path="/" />
-            <Route path="/Categories" element={<CategoryTable entries={entries} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
+            <Route path="/Categories" element={<CategoryTable entries={categories} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
                selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} />} />
-            <Route path="/Items" element={<ItemTable entries={entries1} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
-               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} categories={entries} />} />
+            <Route path="/Items" element={<ItemTable entries={items} editEntry={_editEntry} deleteEntry={_deleteEntry} addEntry={_addEntry}
+               selectedEntry={selectedEntry} updateEntry={_updateEntry} editingEntry={editing} categories={categories} />} />
          </Routes>
       </div>
    );
