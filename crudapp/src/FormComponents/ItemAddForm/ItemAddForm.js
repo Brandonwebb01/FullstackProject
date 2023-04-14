@@ -55,7 +55,7 @@ const ItemAddForm = props => {
 
     return (
         <div className="Form" style={{ marginTop: '16px' }}>
-            <Button onclick={_add} title="Add Entry" />
+            <Button onclick={_add} title="Add Item" />
             <br />
             <label>Category Name:</label>
             <select value={categoryid} onChange={e => _detectCategoryidTextChanged('category_id', e.target.value)}>

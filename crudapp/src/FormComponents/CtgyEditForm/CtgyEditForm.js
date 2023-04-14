@@ -36,7 +36,7 @@ const CtgyEditForm = props => {
 
     return (
         <div className="Form" style={{ marginTop: '16px' }}>
-            <Button onclick={_edit} title="Save Entry" />
+            <Button onclick={_edit} title="Save Category" />
             <br />
             <label>Name:</label>
             <input type="text" placeholder="Name" value={name}

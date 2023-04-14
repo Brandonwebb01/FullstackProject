@@ -30,7 +30,7 @@ const CtgyAddForm = props => {
 
     return (
         <div className="Form" style={{ marginTop: '16px' }}>
-            <Button onclick={_add} title="Add Entry" />
+            <Button onclick={_add} title="Add Category" />
             <br />
             <label>Name:</label>
             <input type="text" placeholder="Name" value={name}

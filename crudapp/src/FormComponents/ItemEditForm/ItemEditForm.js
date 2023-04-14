@@ -66,7 +66,7 @@ const EditForm = props => {
 
     return (
         <div className="Form" style={{ marginTop: '16px' }}>
-            <Button onclick={_edit} title="Save Entry" />
+            <Button onclick={_edit} title="Save Item" />
             <br />
             <label>Category Name:</label>
             <select value={categoryid} onChange={e => _detectCategoryidTextChanged('category_id', e.target.value)}>
